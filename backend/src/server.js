@@ -9,8 +9,6 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 
-connectDB();
-
 // middleware
 app.use(express.json()); // this middleware will parse JSON bodies: req.body
 app.use(rateLimiter);
@@ -23,6 +21,9 @@ app.use((req, res, next) => {
 
 app.use("/api/notes", notesRoutes);
 
+connectDB().then(() => {
 app.listen(PORT, () => {
     console.log("Server started on PORT", PORT);
 })
+})
+
