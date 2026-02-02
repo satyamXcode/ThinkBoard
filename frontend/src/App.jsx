@@ -7,7 +7,6 @@ import React from 'react'
 const App = () => {
   return (
     <div>
-     <button class="btn btn-primary">Button</button>
        <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/create" element={<CreatePage />} />
